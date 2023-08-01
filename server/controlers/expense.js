@@ -1,15 +1,15 @@
-import IncomeSchema from "../models/incomeModel.js";
+import ExpenseSchema from "../models/expenseModel.js";
 
-export async function addIncome(req,res){
+export async function addExpense(req,res){
     const {title,amount,date,category,description} = req.body;
-    const income = IncomeSchema({
+    const expense = ExpenseSchema({
         title,
         amount,
         date,
         category,
         description
     })
-    console.log(income)
+    console.log(expense)
 
     try { 
         if (!title || !amount || !category) {
@@ -23,10 +23,10 @@ export async function addIncome(req,res){
             })
         }
         else {
-            await income.save();
+            await expense.save();
             console.log("ello")
             res.status(200).json({
-                message: "Income added successfully"
+                message: "Expense added successfully"
             })
         }
     }catch(error){
@@ -36,10 +36,10 @@ export async function addIncome(req,res){
     }
 }
 
-export async function getIncome(req,res){
+export async function getExpense(req,res){
     try {
-        const income = await IncomeSchema.find().sort({createdAt:-1});
-        res.status(200).json(income);
+        const expense = await ExpenseSchema.find().sort({createdAt:-1});
+        res.status(200).json(expense);
     }catch(error){
         res.status(500).json({
             message: error.message
@@ -47,12 +47,12 @@ export async function getIncome(req,res){
     }
 }
 
-export async function deleteIncome(req,res){
+export async function deleteExpense(req,res){
     const {id} = req.params;
     try {
-        await IncomeSchema.findByIdAndDelete(id);
+        await ExpenseSchema.findByIdAndDelete(id);
         res.status(200).json({
-            message: "Income deleted successfully"
+            message: "Expense deleted successfully"
 
         })
     }catch(error){
