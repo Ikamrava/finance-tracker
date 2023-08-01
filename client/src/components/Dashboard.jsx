@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { UserAuth } from '../context/AuthContext'
 
 function Dashboard() {
+  const {addIncome,user,inResponse,incomes} = UserAuth()
+  console.log(incomes)
+  
+
+
+
   return (
-    <div>Dashboard</div>
+    <div>
+      {incomes && incomes.map((income) => {
+        return <div>{income.title}</div>
+       })}
+    </div>
   )
 }
 

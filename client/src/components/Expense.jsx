@@ -1,8 +1,13 @@
 import React from 'react'
+import Form from './Form'
+
+
 
 function Expense() {
   return (
-    <div>Expense</div>
+    <div>
+      <Form/>
+    </div>
   )
 }
 

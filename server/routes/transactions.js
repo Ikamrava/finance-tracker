@@ -10,7 +10,7 @@ const router = Router();
 
 // Root route for welcoming everyone
 router.post("/add-income", addIncome )
-router.get("/get-income", getIncome )
+router.get("/get-income/:userId", getIncome )
 router.delete("/delete-income/:id",deleteIncome)
 
 router.post("/add-expense", addExpense )

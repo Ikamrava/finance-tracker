@@ -15,6 +15,8 @@ export const AuthContextProvider = ({ children }) => {
   const [expenses,setExpenses] = useState([]);
   const [error,setError] = useState(null);
   const [loading,setLoading] = useState(false);
+  const [inResponse,setInResponse] = useState(null);
+  const [exResponse,setExResponse] = useState(null);
     
  const googleSingIn = () => {
     const provider = new GoogleAuthProvider();
@@ -42,18 +44,51 @@ export const AuthContextProvider = ({ children }) => {
     try {
       console.log(income)
         const response = await axios.post("http://localhost:5000/api/add-income",income);
-        // setIncomes([...incomes,response.data]);
-        console.log(response)
         setLoading(false);
+        setInResponse(response.data.message);
+        console.log(response.data.message)
     } catch (error) {
         
         setLoading(false);
     }
 }
 
+const addExpense = async (expense) => {
+    
+  setLoading(true);
+  try {
+
+      const response = await axios.post("http://localhost:5000/api/add-expense",expense);
+      setLoading(false);
+      setExResponse(response.data.message);
+      
+  } catch (error) {
+      
+      setLoading(false);
+  }
+}
+
+const getIncome = async () => {
+
+  try {
+   
+    const response = await axios.get(`http://localhost:5000/api/get-income/${user.uid}`);
+
+    setIncomes(response.data);
+
+  } catch (error) {
+    
+  }
+}
+
+useEffect(() => {
+  getIncome();
+},[user])
+
+
 
   return (
-    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome}}>
+    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome,inResponse,addExpense,incomes}}>
       {children}
     </AuthContext.Provider>
   );

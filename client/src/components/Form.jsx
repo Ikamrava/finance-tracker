@@ -6,11 +6,7 @@ import "react-datepicker/dist/react-datepicker.css"
 
 function Form() {
 
-    const {addIncome,user} = UserAuth()
-
-  
-
-    
+    const {addIncome,user,inResponse} = UserAuth()
     const [formData, setFormData] = React.useState({
         userId: user.uid,
         title: '',
@@ -30,8 +26,24 @@ function Form() {
     const handleSubmit = (e) => {
     
         e.preventDefault()
+        if(!title || !amount || !date || !category){
+            return
+        }
+        if(!userId){
+            return
+        }
         addIncome(formData)
+        setFormData({
+            title: '',
+            amount: '',
+            date: '',
+            category: '',
+            description:"",
+            userId: user.uid
+        })
+
     }
+    
 
   return (
     <form onSubmit={handleSubmit} className=' flex flex-col gap-5' autoComplete='off'>
@@ -52,8 +64,12 @@ function Form() {
                     
         </select>
         
-        <input type="text" value={description} name= {description} placeholder='Description' onChange={handleInput("description")}/>
+        <textarea type="text" value={description} name= {description} placeholder='Description' onChange={handleInput("description")}/>
         <button  className='bg-black pl-5 py-2 text-white'>Add Income</button>
+        <div className=' mx-auto text-white font-bold'>
+          {inResponse && <h1>{inResponse}</h1>}
+        </div>
+        
 
     </form>
   )

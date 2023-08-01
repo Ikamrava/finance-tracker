@@ -42,7 +42,7 @@ export async function getIncome(req,res){
     console.log(req.params)
     try {
 
-        const income = await IncomeSchema.find(userId).sort({createdAt:-1});
+        const income = await IncomeSchema.find({userId}).sort({createdAt:-1});
         res.status(200).json(income);
     }catch(error){
         res.status(500).json({
