@@ -8,16 +8,14 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: process.env.API-KEY,
-  authDomain: process.env.AUTH-DOMAIN,
-  projectId: process.env.PROJECT-ID,
-  storageBucket: process.env.STORAGE-BUCKET,
-  messagingSenderId: process.env.MESSAGING-SENDER-ID,
-  appId: process.env.APP-ID,
+  apiKey: "AIzaSyAgkiX3rj8FP3rCLgxDQMvj_mi9hu6Sn3Q",
+  authDomain: "expense-tracker-fe499.firebaseapp.com",
+  projectId: "expense-tracker-fe499",
+  storageBucket: "expense-tracker-fe499.appspot.com",
+  messagingSenderId: "656714788033",
+  appId: "1:656714788033:web:5084417dd4047a33bcb840",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-

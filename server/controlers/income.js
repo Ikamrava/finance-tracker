@@ -1,13 +1,14 @@
 import IncomeSchema from "../models/incomeModel.js";
 
 export async function addIncome(req,res){
-    const {title,amount,date,category,description} = req.body;
+    const {userId,title,amount,date,category,description} = req.body;
     const income = IncomeSchema({
         title,
         amount,
         date,
         category,
-        description
+        description,
+        userId
     })
     console.log(income)
 
@@ -37,8 +38,11 @@ export async function addIncome(req,res){
 }
 
 export async function getIncome(req,res){
+    const {userId} = req.params;
+    console.log(req.params)
     try {
-        const income = await IncomeSchema.find().sort({createdAt:-1});
+
+        const income = await IncomeSchema.find(userId).sort({createdAt:-1});
         res.status(200).json(income);
     }catch(error){
         res.status(500).json({
@@ -48,7 +52,9 @@ export async function getIncome(req,res){
 }
 
 export async function deleteIncome(req,res){
+    console.log("hlleo")
     const {id} = req.params;
+    console.log(id)
     try {
         await IncomeSchema.findByIdAndDelete(id);
         res.status(200).json({

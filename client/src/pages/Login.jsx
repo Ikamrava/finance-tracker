@@ -2,7 +2,7 @@ import GoogleButton from "react-google-button"
 import { UserAuth } from '../context/AuthContext.jsx'
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { redirect } from "react-router-dom";
+
 
 
 
@@ -21,7 +21,7 @@ function Login() {
 
     useEffect(()=>{
         if(user != null){
-            navigate("/dashboard");
+            navigate("/");
         }
     },[user])
 

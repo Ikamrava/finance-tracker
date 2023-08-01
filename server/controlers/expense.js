@@ -1,13 +1,14 @@
 import ExpenseSchema from "../models/expenseModel.js";
 
 export async function addExpense(req,res){
-    const {title,amount,date,category,description} = req.body;
+    const {userId,title,amount,date,category,description} = req.body;
     const expense = ExpenseSchema({
         title,
         amount,
         date,
         category,
-        description
+        description,
+        userId
     })
     console.log(expense)
 
@@ -37,8 +38,9 @@ export async function addExpense(req,res){
 }
 
 export async function getExpense(req,res){
+    const {userId} = req.params;
     try {
-        const expense = await ExpenseSchema.find().sort({createdAt:-1});
+        const expense = await ExpenseSchema.find(userId).sort({createdAt:-1});
         res.status(200).json(expense);
     }catch(error){
         res.status(500).json({

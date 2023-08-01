@@ -9,8 +9,11 @@ function Navbar() {
 
   async function handlesignOut(){
     await signOut();
-    return redirect("/");
+   
   }
+
+  
+
   
 
   return (

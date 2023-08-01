@@ -11,15 +11,11 @@ function Dashboard() {
     await signOut();
   }
 
-  // useEffect(()=>{
-  //   if(user == null){
-  //     navigate("/");
-  //   }
-  // },[user])
-  
+
   return (
     <div>
       <h3>Welcome {user && user.displayName}</h3>
+      
       
     </div>
   )
