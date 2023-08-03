@@ -72,11 +72,11 @@ function Expense() {
   return (
 
     <div className='flex gap-5 '>
-        <div className='w-[30%]  rounded-md '>
+        <div className='sm:w-[30%]  rounded-md '>
           <h1 className='text-black text-2xl font-bold p-2'>Total Expense is £{totalExpense()}</h1>
           <InForm/>
         </div>
-        <div className='flex-1 flex flex-col gap-5 overflow-auto max-h-[700px]'>
+        <div className='flex-1 sm:flex flex-col gap-5 overflow-auto max-h-[700px] hidden'>
         {expenses.length > 0 ? 
           expenses.map((item)=>
           <div className=' flex gap-2 bg-slate-700 rounded-md p-2 text-white items-center' key={item._id}>

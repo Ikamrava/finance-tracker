@@ -4,6 +4,7 @@ import { UserAuth } from '../context/AuthContext.jsx'
 import {AiFillCalendar, AiFillDelete, AiFillMoneyCollect} from 'react-icons/ai'
 import {GiReceiveMoney} from 'react-icons/gi'
 import {TbPigMoney} from 'react-icons/tb'
+import {BsCashCoin} from 'react-icons/bs'
 import moment from 'moment'
 
 
@@ -18,7 +19,7 @@ function Income() {
     case 'freelancing':
         return <GiReceiveMoney size={35}/>
       case 'cash':
-        return <FaMoneyBill1Wave size={35}/>
+        return <BsCashCoin size={35}/>
       default:
         return <TbPigMoney size={35}/>
     
@@ -34,11 +35,11 @@ function Income() {
   return (
 
     <div className='flex gap-5 '>
-        <div className='w-[30%]  rounded-md '>
-          <h1 className='text-black text-2xl font-bold p-2'>Total Income is £{totalIncome()}</h1>
+        <div className='sm:w-[30%]  rounded-md '>
+          <h1 className='text-black text-xl font-bold p-2 w-full'>Total Income is £{totalIncome()}</h1>
           <Form/>
         </div>
-        <div className='flex-1 flex flex-col gap-5 overflow-auto max-h-[700px]'>
+        <div className='flex-1 sm:flex flex-col gap-5 overflow-auto max-h-[700px] hidden'>
         {incomes.length > 0 ? incomes.map((item)=>
           <div className=' flex gap-2 bg-slate-700 rounded-md p-2 text-white items-center' key={item._id}>
 

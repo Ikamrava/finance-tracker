@@ -14,10 +14,8 @@ function Home() {
       case 1:
         return <Dashboard />
       case 2:
-        return <Dashboard />
-      case 3:
         return <Income />
-      case 4: 
+      case 3: 
         return <Expense />
     
     }
@@ -25,9 +23,11 @@ function Home() {
 
 
   return (
-    <div className=' flex h-[90vh] text-gray-800 font-mono gap-2'>
-    <div className='w-[20%] bg-slate-500 rounded-md '><Navigation active={active} setActive={setActive} /></div>
-      <main className=' bg-slate-400 w-[80%] p-5 rounded-md  text-gray-800 font-mono  flex-col gap-5  '>
+    <div className=' sm:flex max-h-full text-gray-800 font-mono gap-2'>
+    <div className='md:w-[20%] bg-slate-500 rounded-md  '>
+      <Navigation active={active} setActive={setActive} />
+    </div>
+      <main className=' bg-slate-400 md:w-[80%] p-5 rounded-md  text-gray-800 font-mono  md:flex-col gap-5  '>
         {displayData()}
       </main>
     </div>

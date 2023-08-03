@@ -46,8 +46,8 @@ function Form() {
     
 
   return (
-    <form onSubmit={handleSubmit} className=' flex flex-col gap-5' autoComplete='off'>
-        <input type="text" value={title} name= {title} placeholder='Title' onChange={handleInput("title")} className='p-2'/>
+    <form onSubmit={handleSubmit} className=' flex flex-col gap-5 w-full' autoComplete='off'>
+        <input type="text" value={title} name= {title} placeholder='Title' onChange={handleInput("title")} className='p-2 w-full'/>
         <input type="amount" value={amount} name= {amount} placeholder='Amount' onChange={handleInput("amount")} className='p-2'/>
         <div>
             <DatePicker className='p-2' selected={date} id="date" placeholderText='Enter a Date'  dateFormat="dd/MM/yyyy"  onChange={(date)=>{

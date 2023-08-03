@@ -129,6 +129,13 @@ const totalExpense = () => {
   return total;
 }
 
+useEffect(() => {
+  getExpense();
+},[user])
+useEffect(() => {
+  getIncome();
+},[user])
+
 
 
 
