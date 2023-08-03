@@ -47,15 +47,15 @@ function Form() {
 
   return (
     <form onSubmit={handleSubmit} className=' flex flex-col gap-5' autoComplete='off'>
-        <input type="text" value={title} name= {title} placeholder='Title' onChange={handleInput("title")}/>
-        <input type="amount" value={amount} name= {amount} placeholder='Amount' onChange={handleInput("amount")}/>
+        <input type="text" value={title} name= {title} placeholder='Title' onChange={handleInput("title")} className='p-2'/>
+        <input type="amount" value={amount} name= {amount} placeholder='Amount' onChange={handleInput("amount")} className='p-2'/>
         <div>
-            <DatePicker selected={date} id="date" placeholderText='Enter a Date'  dateFormat="dd/MM/yyyy"  onChange={(date)=>{
+            <DatePicker className='p-2' selected={date} id="date" placeholderText='Enter a Date'  dateFormat="dd/MM/yyyy"  onChange={(date)=>{
                 setFormData({...formData, date: date})
             }} />
         </div>
         
-        <select required value={category} name="category" id="category" onChange={handleInput('category')}>
+        <select required value={category} className='p-2' name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Option</option>
                     <option value="salary">Salary</option>
                     <option value="freelancing">Freelancing</option>
@@ -64,11 +64,9 @@ function Form() {
                     
         </select>
         
-        <textarea type="text" value={description} name= {description} placeholder='Description' onChange={handleInput("description")}/>
+        <textarea className='p-2' type="text" value={description} name= {description} placeholder='Description' onChange={handleInput("description")}/>
         <button  className='bg-black pl-5 py-2 text-white'>Add Income</button>
-        <div className=' mx-auto text-white font-bold'>
-          {inResponse && <h1>{inResponse}</h1>}
-        </div>
+      
         
 
     </form>

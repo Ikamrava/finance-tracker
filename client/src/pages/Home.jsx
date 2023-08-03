@@ -26,8 +26,8 @@ function Home() {
 
   return (
     <div className=' flex h-[90vh] text-gray-800 font-mono gap-2'>
-    <div className='w-[30%] bg-slate-500 rounded-md '><Navigation active={active} setActive={setActive} /></div>
-      <main className=' bg-slate-400 w-[70%] p-5 rounded-md  text-gray-800 font-mono  flex-col gap-5  '>
+    <div className='w-[20%] bg-slate-500 rounded-md '><Navigation active={active} setActive={setActive} /></div>
+      <main className=' bg-slate-400 w-[80%] p-5 rounded-md  text-gray-800 font-mono  flex-col gap-5  '>
         {displayData()}
       </main>
     </div>

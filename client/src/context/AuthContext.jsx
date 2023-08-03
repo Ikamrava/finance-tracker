@@ -81,14 +81,29 @@ const getIncome = async () => {
   }
 }
 
-useEffect(() => {
-  getIncome();
-},[user])
+const deleteIncome = async (id) => {
+  try {
+    const response = await axios.delete(`http://localhost:5000/api/delete-income/${id}`);
+    getIncome();
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const totalIncome = () => {
+  let total = 0;
+  incomes.forEach(income => {
+    total += income.amount;
+  });
+  return total;
+}
+
+
 
 
 
   return (
-    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome,inResponse,addExpense,incomes}}>
+    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome,inResponse,addExpense,incomes,getIncome,deleteIncome,totalIncome}}>
       {children}
     </AuthContext.Provider>
   );

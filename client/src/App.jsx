@@ -6,7 +6,7 @@ import Login from './pages/Login.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import Protected from './components/Protected.jsx'
-import { GlobalProvider } from './context/globalContext.jsx'
+
 
 
 
@@ -14,7 +14,7 @@ function App() {
 
 
   return (
-    <div className=' max-w-6xl mx-auto'>
+    <div className=' max-w-8xl mx-auto px-10'>
     <AuthContextProvider>
    
       
