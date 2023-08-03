@@ -19,7 +19,11 @@ app.use(express.json())
 
 const apiRoot = "/api";
 
+
+
 app.use(apiRoot, router);
+
+
 
 
 const port = process.env.PORT || 3001

@@ -17,6 +17,10 @@ router.post("/add-expense", addExpense )
 router.get("/get-expense/:userId", getExpense )
 router.delete("/delete-expense/:id",deleteExpense)
 
+router.get("/", (req, res) => {
+    res.send("Hello World");
+  })
+
 
 
 export default router;

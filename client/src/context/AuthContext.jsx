@@ -8,6 +8,7 @@ import {auth} from "../firebase"
 
 const AuthContext = createContext();
 
+
 export const AuthContextProvider = ({ children }) => {
 
   const [user,setUser] = useState({})
@@ -36,14 +37,14 @@ export const AuthContextProvider = ({ children }) => {
     };
   },[])
 
-  const Base_Url = "https://localhost:5000/api/";
+  const Base_Url = "https://finance-tracker-bz2b.onrender.com/api/";
 
   const addIncome = async (income) => {
     
     setLoading(true);
     try {
       console.log(income)
-        const response = await axios.post("http://localhost:5000/api/add-income",income);
+        const response = await axios.post(Base_Url + "add-income",income);
         setLoading(false);
         setInResponse(response.data.message);
         console.log(response.data.message)
@@ -58,7 +59,7 @@ const addExpense = async (expense) => {
   setLoading(true);
   try {
 
-      const response = await axios.post("http://localhost:5000/api/add-expense",expense);
+      const response = await axios.post(Base_Url + "add-expense",expense);
       
       setLoading(false);
       
@@ -73,7 +74,7 @@ const getExpense = async () => {
 
   try {
    
-    const response = await axios.get(`http://localhost:5000/api/get-expense/${user.uid}`);
+    const response = await axios.get(Base_Url + `get-expense/${user.uid}`);
 
     setExpenses(response.data);
 
