@@ -3,7 +3,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv';
-import db from './db/db.js'
+import db from './db.js'
 import router from './routes/transactions.js'
 
 
