@@ -39,7 +39,7 @@ export async function addIncome(req,res){
 
 export async function getIncome(req,res){
     const {userId} = req.params;
-    console.log(req.params)
+    
     try {
 
         const income = await IncomeSchema.find({userId}).sort({createdAt:-1});
@@ -52,7 +52,7 @@ export async function getIncome(req,res){
 }
 
 export async function deleteIncome(req,res){
-    console.log("hlleo")
+ 
     const {id} = req.params;
     console.log(id)
     try {

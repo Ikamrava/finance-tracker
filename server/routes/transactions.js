@@ -14,7 +14,7 @@ router.get("/get-income/:userId", getIncome )
 router.delete("/delete-income/:id",deleteIncome)
 
 router.post("/add-expense", addExpense )
-router.get("/get-expense", getExpense )
+router.get("/get-expense/:userId", getExpense )
 router.delete("/delete-expense/:id",deleteExpense)
 
 

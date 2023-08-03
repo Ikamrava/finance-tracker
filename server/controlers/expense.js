@@ -39,8 +39,10 @@ export async function addExpense(req,res){
 
 export async function getExpense(req,res){
     const {userId} = req.params;
+    
     try {
-        const expense = await ExpenseSchema.find(userId).sort({createdAt:-1});
+
+        const expense = await ExpenseSchema.find({userId}).sort({createdAt:-1});
         res.status(200).json(expense);
     }catch(error){
         res.status(500).json({
@@ -51,6 +53,7 @@ export async function getExpense(req,res){
 
 export async function deleteExpense(req,res){
     const {id} = req.params;
+    console.log(id)
     try {
         await ExpenseSchema.findByIdAndDelete(id);
         res.status(200).json({

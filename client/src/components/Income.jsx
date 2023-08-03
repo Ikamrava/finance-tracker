@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import Form from './Form'
 import { UserAuth } from '../context/AuthContext.jsx'
-import {AiFillDelete, AiFillMoneyCollect} from 'react-icons/ai'
+import {AiFillCalendar, AiFillDelete, AiFillMoneyCollect} from 'react-icons/ai'
 import {GiReceiveMoney} from 'react-icons/gi'
 import {TbPigMoney} from 'react-icons/tb'
 import moment from 'moment'
@@ -39,7 +39,7 @@ function Income() {
           <Form/>
         </div>
         <div className='flex-1 flex flex-col gap-5 overflow-auto max-h-[700px]'>
-        {incomes.length>0 && incomes.map((item)=>
+        {incomes.length > 0 ? incomes.map((item)=>
           <div className=' flex gap-2 bg-slate-700 rounded-md p-2 text-white items-center' key={item._id}>
 
             <div className=' bg-slate-400 rounded-md p-2 text-black'>
@@ -53,13 +53,13 @@ function Income() {
 
                <div className=' flex gap-4 w-[100%]  '>
                   <div>
-                      {item.amount}
+                      £{item.amount}
                   </div>
                   <div>
-                      {moment(item.date).format('DD/MM/YYYY')}
+                       <span className=' flex gap-1'><AiFillCalendar/>{moment(item.date).format('DD/MM/YYYY')}</span>
                   </div>
                   
-                  <div>
+                  <div className=' capitalize'>
                      {item.category}
                   </div>
                   
@@ -86,7 +86,7 @@ function Income() {
           
           
           
-          )}
+          ): <p className='text-center text-black font-bold'>...Checking Data</p>}
         </div>
       
       

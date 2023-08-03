@@ -4,7 +4,7 @@ import { UserAuth } from "../context/AuthContext"
 function Protected({children}) {
     const {user} = UserAuth()
     if(!user){
-        return <Navigate to="/" />
+        return <Navigate to="/login" />
     }
 
 
