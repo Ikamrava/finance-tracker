@@ -85,7 +85,7 @@ const getExpense = async () => {
 
 const deleteExpense = async (id) => {
   try {
-    const response = await axios.delete(`http://localhost:5000/api/delete-expense/${id}`);
+    const response = await axios.delete(Base_Url + `delete-expense/${id}`);
     getExpense();
   } catch (error) {
     console.log(error)
@@ -96,7 +96,7 @@ const getIncome = async () => {
 
   try {
    
-    const response = await axios.get(`http://localhost:5000/api/get-income/${user.uid}`);
+    const response = await axios.get(Base_Url + `get-income/${user.uid}`);
 
     setIncomes(response.data);
 
@@ -107,7 +107,7 @@ const getIncome = async () => {
 
 const deleteIncome = async (id) => {
   try {
-    const response = await axios.delete(`http://localhost:5000/api/delete-income/${id}`);
+    const response = await axios.delete(Base_Url + `delete-income/${id}`);
     getIncome();
   } catch (error) {
     console.log(error)
