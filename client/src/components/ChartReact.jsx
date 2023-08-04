@@ -46,26 +46,7 @@ function ChartReact() {
   }
 
 
-  // const data = {
-  //   labels: incomes.map((item)=>moment(item.date).format('MM')),
-  //   // labels : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-  //   datasets:[
-  //     {
-  //       label:'Income',
-  //       data:getTotalAmountByMonth(incomes),
-  //       backgroundColor: "green",
-        
-        
-  //     },
-  //     {
-  //       label:'Expense',
-  //       data:getTotalAmountByMonth(expenses),
-  //       backgroundColor: "red"
-        
-  //     }
-  //   ]
-    
-  // }
+ 
   const data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [

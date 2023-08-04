@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css"
 
 function Form() {
 
-    const {addIncome,user,inResponse} = UserAuth()
+    const {addIncome,user,getIncome} = UserAuth()
     const [formData, setFormData] = React.useState({
         userId: user.uid,
         title: '',
@@ -41,7 +41,7 @@ function Form() {
             description:"",
             userId: user.uid
         })
-
+        getIncome()
     }
     
 

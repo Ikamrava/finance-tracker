@@ -1,5 +1,10 @@
 import React from 'react'
 import {dashboard, expenses, transactions, trend} from '../utils/icon'
+import {UserAuth} from '../context/AuthContext'
+import Avatar from 'react-avatar'
+
+
+
 const menuItems = [
     {
         id: 1,
@@ -23,8 +28,14 @@ const menuItems = [
 ]
 
 function Navigation({active, setActive}) {
+    const{user} = UserAuth()
+
   return (
     <div >
+        <div className='p-3 flex items-center gap-3'>
+            <Avatar src={user.photoURL} alt="avatar" size='55'  className='rounded-full '  />
+            <p className='text-white'>{user.displayName}</p>
+        </div>
           
             <ul className="flex cursor-pointer text-white md:block items-center justify-evenly">
                 {menuItems.map((item) => {

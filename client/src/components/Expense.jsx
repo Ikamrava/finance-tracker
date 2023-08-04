@@ -53,6 +53,10 @@ function Expense() {
     }
   }
 
+  useEffect(() => { 
+    getExpense()
+  },[])
+
   // <option value="council">Council Bill</option>
   //                   <option value="energy">Energy Bill</option>
   //                   <option value="mortgage">Mortgage</option>
@@ -63,12 +67,7 @@ function Expense() {
   //                   <option value="internet">Internet</option>
   //                   <option value="grocery">Grocery</option>
 
-  useEffect(() => {
-    getExpense();
-  },[user,expenses])
- 
-  
-  
+
   return (
 
     <div className='flex gap-5 '>

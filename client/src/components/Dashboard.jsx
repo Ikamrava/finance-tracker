@@ -6,7 +6,13 @@ import ChartReact from './ChartReact'
 
 
 function Dashboard() {
-  const {totalIncome,totalExpense} = UserAuth()
+  const {totalIncome,totalExpense,getIncome,getExpense} = UserAuth()
+  useEffect(() => {
+    getIncome()
+    getExpense()
+  },[])
+
+
   
 
 

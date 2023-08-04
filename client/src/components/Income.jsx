@@ -28,7 +28,7 @@ function Income() {
 
   useEffect(() => {
     getIncome();
-  },[user,incomes])
+  },[])
  
   
   
@@ -40,7 +40,7 @@ function Income() {
           <Form/>
         </div>
         <div className='flex-1 sm:flex flex-col gap-5 overflow-auto max-h-[700px] hidden'>
-        {incomes.length > 0 ? incomes.map((item)=>
+        {incomes.map((item)=>
           <div className=' flex gap-2 bg-slate-700 rounded-md p-2 text-white items-center' key={item._id}>
 
             <div className=' bg-slate-400 rounded-md p-2 text-black'>
@@ -87,7 +87,7 @@ function Income() {
           
           
           
-          ): <p className='text-center text-black font-bold'>...Checking Data</p>}
+          )}
         </div>
       
       

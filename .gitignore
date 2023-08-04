@@ -10,3 +10,4 @@ server/.env
 
 client/src/firebase.js
 client/src/config.js
+client/src/firebase.js

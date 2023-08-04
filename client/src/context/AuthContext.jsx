@@ -52,8 +52,8 @@ export const AuthContextProvider = ({ children }) => {
       console.log(income)
         const response = await axios.post(Base_Url + "add-income",income);
         setLoading(false);
-        setInResponse(response.data.message);
-        console.log(response.data.message)
+        getIncome();
+       
     } catch (error) {
         
         setLoading(false);
@@ -68,6 +68,7 @@ const addExpense = async (expense) => {
       const response = await axios.post(Base_Url + "add-expense",expense);
       
       setLoading(false);
+      getExpense();
       
       
   } catch (error) {
@@ -99,15 +100,14 @@ const deleteExpense = async (id) => {
 }
 
 const getIncome = async () => {
-
+ 
   try {
-   
     const response = await axios.get(Base_Url + `get-income/${user.uid}`);
-
     setIncomes(response.data);
+    setLoading(false)
 
   } catch (error) {
-    
+    console.log(error)
   }
 }
 
@@ -136,19 +136,14 @@ const totalExpense = () => {
   return total;
 }
 
-useEffect(() => {
-  getExpense();
-},[user])
-useEffect(() => {
-  getIncome();
-},[user])
+
 
 
 
 
 
   return (
-    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome,inResponse,incomes,getIncome,deleteIncome,totalIncome,expenses,addExpense,getExpense,deleteExpense,totalExpense}}>
+    <AuthContext.Provider value={{loading,googleSingIn,signOut,user,addIncome,inResponse,incomes,getIncome,deleteIncome,totalIncome,expenses,addExpense,getExpense,deleteExpense,totalExpense}}>
       {children}
     </AuthContext.Provider>
   );
