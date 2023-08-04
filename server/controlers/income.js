@@ -39,6 +39,7 @@ export async function addIncome(req,res){
 
 export async function getIncome(req,res){
     const {userId} = req.params;
+    console.log(userId)
     
     try {
 

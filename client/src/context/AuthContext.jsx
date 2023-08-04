@@ -27,13 +27,19 @@ export const AuthContextProvider = ({ children }) => {
  const signOut = () => {
     auth.signOut()
  }
+ const SessionExpirationTime = 30 * 60 * 1000;
+ let logoutTimeout;
 
  useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setUser(user)
+
+      // clearTimeout(logoutTimeout);
+      // logoutTimeout = setTimeout(handleLogout, SessionExpirationTime);
     });
     return ()=>{
       unsubscribe()
+      // clearTimeout(logoutTimeout);
     };
   },[])
 
