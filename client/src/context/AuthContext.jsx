@@ -142,7 +142,7 @@ useEffect(() => {
 
 
   return (
-    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome,inResponse,addExpense,incomes,getIncome,deleteIncome,totalIncome,expenses,addExpense,getExpense,deleteExpense,totalExpense}}>
+    <AuthContext.Provider value={{googleSingIn,signOut,user,addIncome,inResponse,incomes,getIncome,deleteIncome,totalIncome,expenses,addExpense,getExpense,deleteExpense,totalExpense}}>
       {children}
     </AuthContext.Provider>
   );
