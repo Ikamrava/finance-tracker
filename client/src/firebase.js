@@ -8,14 +8,15 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: process.env.API-KEY,
-  authDomain: process.env.AUTH-DOMAIN,
-  projectId: process.env.PROJECT-ID,
-  storageBucket: process.env.STORAGE-BUCKET,
-  messagingSenderId: process.env.MESSAGING-SENDER-ID,
-  appId: process.env.APP-ID,
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId:process.env.MESSAGING-SENDER_ID,
+  appId: process.env.APP_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
+
