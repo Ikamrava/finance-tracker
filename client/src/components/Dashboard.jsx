@@ -16,6 +16,8 @@ function Dashboard() {
 
   const  halifaxCurrentIncomeamount = incomes?.filter(item => item.source === 'halifax').map((item) => item.amount).reduce((previousValue, currentValue) => previousValue + currentValue, initialValue)
   const  halifaxCurrentExpenseamount = expenses?.filter(item => item.source === 'halifax').map((item) => item.amount).reduce((previousValue, currentValue) => previousValue + currentValue, initialValue)
+  console.log(halifaxCurrentIncomeamount)
+  console.log(halifaxCurrentExpenseamount)
   const halifaxCurrentBalance = halifaxCurrentIncomeamount - halifaxCurrentExpenseamount
 
   const  nationCurrentIncomeamount = incomes?.filter(item => item.source === 'nationWide').map((item) => item.amount).reduce((previousValue, currentValue) => previousValue + currentValue, initialValue)
