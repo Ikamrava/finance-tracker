@@ -1,14 +1,15 @@
 import IncomeSchema from "../models/incomeModel.js";
 
 export async function addIncome(req,res){
-    const {userId,title,amount,date,category,description} = req.body;
+    const {userId,title,amount,date,category,description,source} = req.body;
     const income = IncomeSchema({
         title,
         amount,
         date,
         category,
         description,
-        userId
+        userId,
+        source,
     })
     console.log(income)
 

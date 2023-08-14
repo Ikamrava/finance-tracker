@@ -16,7 +16,7 @@ function InForm() {
         description:"",
     })
 
-    const {title, amount, date, category, description,userId} = formData
+    const {title, amount, date, category, description,userId,source} = formData
  
     
     const handleInput = (name) => (e) => {
@@ -39,7 +39,8 @@ function InForm() {
             date: '',
             category: '',
             description:"",
-            userId: user.uid
+            userId: user.uid,
+            source:""
         })
         getExpense()
 
@@ -69,6 +70,15 @@ function InForm() {
                     <option value="grocery">Grocery</option>
                     <option value="other">Other</option>
                     
+        </select>
+        <select required value={source} className='p-2' name="source" id="source" onChange={handleInput('source')}>
+                    <option value=""  disabled >Select Option</option>
+                    <option value="halifax">Halifax</option>
+                    <option value="nationWide">NationWide</option>
+                    <option value="cash">Cash</option>
+                    <option value="halifax-credit">Halifax-Credit</option>
+                    <option value="nationwide-credit">Nation-Credit</option>
+                    <option value="other">Other</option>
         </select>
         
         <textarea className='p-2' type="text" value={description} name= {description} placeholder='Description' onChange={handleInput("description")}/>

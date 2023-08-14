@@ -1,14 +1,15 @@
 import ExpenseSchema from "../models/expenseModel.js";
 
 export async function addExpense(req,res){
-    const {userId,title,amount,date,category,description} = req.body;
+    const {userId,title,amount,date,category,description,source} = req.body;
     const expense = ExpenseSchema({
         title,
         amount,
         date,
         category,
         description,
-        userId
+        userId,
+        source
     })
     console.log(expense)
 

@@ -37,6 +37,12 @@ const ExpenseSchema = new mongoose.Schema({
     userId:{
         type: String,
         required: true,
+    },
+    source:{
+        type: String,
+        required: true,
+        trim: true,
+        default: "Cash"
     }
 },{timestamps:true})
 
